@@ -1,0 +1,19 @@
+
+Todo:
+  ☐ Pedict
+  ☐ Use AI to summarise the lesson
+  ☐ Understand the summary
+    ☐ why it exist
+  ☐ skim through the original content quickly
+  ☐ Build the project
+    ☐ what would break if it doesn't exist
+    ☐ What fixed it
+  ☐ Read GFG for interview explainations
+    ☐ GfG-style definition
+    ☐ 60-second interview answer
+
+Checkpoint:
+  ☐ Explain why it exists out loud, no notes, in under 60 seconds
+  ☐ Point to the exact place in your project where it's used
+  ☐ Describe what broke (or would break) without it
+  ☐ State the crisp, textbook-style definition (your GfG pass)
