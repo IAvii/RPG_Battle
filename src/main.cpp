@@ -1,12 +1,13 @@
 #include <iostream>
-#include "math_utils.h"
+#include "Character.h"
+#include "Goblin.h"
+
+using namespace std;
 
 int main() {
-    int sum = myproject::add(2, 3);
-    int product = myproject::multiply(2, 3);
+    Character hero("Hero", 100, 100, 15);
 
-    std::cout << "Sum: " << sum << std::endl;
-    std::cout << "Product: " << product << std::endl;
-
+    hero.getStatus();
+    
     return 0;
 }

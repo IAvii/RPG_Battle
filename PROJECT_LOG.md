@@ -12,7 +12,7 @@
 (the bug, the awkward code, or the design smell)
 
 **What happends if its not implemented**
-(the bug, the awkward code, or the design smell)
+(the bug, the awkward code, or the design smell)v
 
 **the problem it solves in project**
 (what you changed and why it worked)
