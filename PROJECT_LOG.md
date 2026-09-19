@@ -102,4 +102,14 @@
 **the problem it solves in project:**
 Implementing a base class as character helped to implement common attributes and function to all the specific characters without repeating the code and without explicitly assigning the attributes in each specific character class.
 
+### Checkpoint questions
+---
+- Why does `Character` use protected instead of private for its members, given that `Goblin` needs to use them? <br>
+through protected the subclass can access the member functions or member variable from the base class <br> but if the base class uses private those member function or variable would be accessible only to the base class and not the subclass
+- what's the actual difference between overloading `Character`'s constructor and overriding `attack()` in `Goblin` — which one is resolved at compile time, and which at runtime?
+<br>
+`Overloading constructor` or member function means functions or contructor are overloaded using the same name but different parameter list and it is defined in the same class. Overloading is resolved at **compile time**.<br>
+whereas `overriding` means the subclass provides its own implementation of the same function which is defined in the base class. `virtual` keyword is used to override the function in the sub class and it is resolved at **run time**.
+
+
 ---
