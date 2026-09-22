@@ -24,6 +24,8 @@ class Character {
             
         void takeDamage(int amount);
 
+        void heal(int amount);
+
         bool isAlive() const;
 
         virtual void attack(Character& target);

@@ -17,10 +17,10 @@ class Character {
           TotalCharacterCreated++;
       };
       
-    Character(string charName)
-      : m_name(charName),m_currentHP(50),m_maxHP(50),m_attackPower(10) {
-        TotalCharacterCreated++;
-      };
+    // Character(string charName)
+    //   : m_name(charName),m_currentHP(50),m_maxHP(50),m_attackPower(10) {
+    //     TotalCharacterCreated++;
+    //   };
 
 
     static int getTotalCharacterCreated() {
@@ -37,6 +37,14 @@ class Character {
         if (m_currentHP < 0) {
             m_currentHP = 0;
         }
+    }
+
+    void heal(int amount) {
+      m_currentHP +=  amount;
+
+      if (m_currentHP > m_maxHP) {
+          m_currentHP = m_maxHP;
+      }
     }
 
     bool isAlive() const {

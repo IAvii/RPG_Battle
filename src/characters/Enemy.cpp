@@ -6,7 +6,7 @@ using namespace std;
 class Goblin: public Character {
 
     public:
-        Goblin(): Character("Goblin", 30, 30, 5) {};
+        Goblin(): Character("Goblin", 45, 45, 8) {};
 
         void attack(Character& target) {
             target.takeDamage(m_attackPower);
@@ -18,7 +18,7 @@ class Goblin: public Character {
 
 class Orc: public Character {
     public:
-        Orc(): Character("Orc", 60, 60, 12) {};
+        Orc(): Character("Orc", 100, 100, 12) {};
 
         void attack(Character& target) {
             target.takeDamage(m_attackPower);
