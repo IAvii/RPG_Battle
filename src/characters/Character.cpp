@@ -43,8 +43,10 @@ class Character {
         return m_currentHP > 0;
     }
 
-    void attack(Character& target) { //virtual
+    virtual void attack(Character& target) { //virtual
         target.takeDamage(m_attackPower);
+
+        cout << "Enemy smashes you for " << m_attackPower <<" damage!" << endl;
     }
 
     string getName () const {

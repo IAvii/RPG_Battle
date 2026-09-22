@@ -26,7 +26,7 @@ class Character {
 
         bool isAlive() const;
 
-        void attack(Character& target);
+        virtual void attack(Character& target);
 
         string getName () const;
         
