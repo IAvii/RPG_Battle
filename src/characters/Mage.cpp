@@ -11,7 +11,7 @@ class Mage: public Character {
 
   public:
   
-    Mage(): Character("Mage", 75, 75, 8) {}
+    Mage(string charName): Character(charName, 75, 75, 8) {}
 
     ~Mage() {
       for (Spell* spell : m_spell) {
