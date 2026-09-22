@@ -147,3 +147,36 @@ whereas `overriding` means the subclass provides its own implementation of the s
 The word polymorphism means having many forms. In C++, polymorphism concept can be applied to functions and operators. A single function name can work differently in different situations. Similarly, an operator works different when used in different context.
 
 ---
+
+# Add Mage Character and spells
+
+##  **learncpp.com chapters** to read that week
+
+**Date:** 22nd Sept 2026
+
+**The feature:**
+- Added a `Mage` character class with a "Cast Spell" battle menu option, offering `Fireball` and `Heal`. Warriors don't get this menu option at all.
+
+**Location** [Spell.cpp](./src/Spell.cpp) | [Spell.h](./include/Spell.h) | [Mage.cpp](./src/characters/Mage.cpp) | [Mage.h](./include/Mage.h)
+
+**The Concept:**
+  - [Pure Virtual Functions (Interfaces)](https://youtu.be/UWAdd13EfM8)
+  - [Virtual Destructors in C++](https://youtu.be/jELbKhGkEi0)
+
+
+**why that concept exists**
+- `Pure Virtual function` is useful when we want to strict implementation sub class functions and don't want base class to be instantiated. (Creating base class object is useless but the fireball and heal derived from spell must provide implementation for casting)
+- `Virtual Destructor` are used when we create an object of base class type but it points to the sub class. So when destroying the object the base class normal destructor does not know that there is a sub class destructor as well which is to be called so we mark the destructor `virtual` which check sub class desctructor implements that first and then runs the base class destructor
+
+**What happends if its not implemented**
+- Sub class overidden function would be optional and the base class virtual function will get called by default which is not the behaviour that we want (we don't want base class function to be called by default).
+- Not using `Virtual Destructor` on object of base class type but pointing to the sub class will not call the sub class destructor which won't release some dynamically assigned resources causing **memory leak**.
+
+**the problem it solves in project:**
+- It make the implementation of its own method of spells like fireball and heal compulsory.
+- The `virtual destructor` prevents memory leaks by calling derved class destructor when deleting objects.
+
+**60-second interview answer:**
+- A `pure virtual function` in C++ is a virtual function declared in a base class that has no implementation in that class and must be overridden by any concrete derived class. It is like defining an interface in other languages such as Java or C#.
+- A `virtual destructor` ensures that when you delete a derived class object through a pointer to its base class, the derived class's destructor runs first, followed by the base class's destructor.
+---
