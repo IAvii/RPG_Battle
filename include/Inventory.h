@@ -1,3 +1,5 @@
+#pragma once
+
 #include "Item.h"
 #include <vector>
 #include <memory>

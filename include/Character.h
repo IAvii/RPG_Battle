@@ -10,16 +10,14 @@ class Character {
         int m_currentHP;
         int m_maxHP;
         int m_attackPower;
-        int m_weaponBonus;
+        int m_weaponBonus = 0;
 
         static int TotalCharacterCreated;
-    public:
 
+    public:
         Character(string charName, int hp, int maxHP, int attackPower);
 
-        static int getTotalCharacterCreated() {
-            return TotalCharacterCreated;
-        }
+        static int getTotalCharacterCreated();
 
         void getStatus() const;
             
@@ -39,5 +37,3 @@ class Character {
         
         int getHP() const;
 };
-
-int Character::TotalCharacterCreated = 0;

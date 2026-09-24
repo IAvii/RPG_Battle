@@ -148,9 +148,7 @@ The word polymorphism means having many forms. In C++, polymorphism concept can 
 
 ---
 
-# Add Mage Character and spells
-
-##  **learncpp.com chapters** to read that week
+## Add Mage Character and spells
 
 **Date:** 22nd Sept 2026
 

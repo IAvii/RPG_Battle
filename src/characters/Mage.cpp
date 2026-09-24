@@ -1,42 +1,33 @@
 #include "Character.h"
+#include "Mage.h"
 #include <vector>
 #include "Spell.h"
 #include <iostream>
 
 using namespace std;
 
-class Mage: public Character {
-  private:
-    vector<Spell*> m_spell;
 
-  public:
-  
-    Mage(string charName): Character(charName, 75, 75, 8) {}
+Mage::~Mage() {
+  for (Spell* spell : m_spell) {
+    delete spell;
+  }
+  m_spell.clear();
 
-    ~Mage() {
-      for (Spell* spell : m_spell) {
-        delete spell;
-      }
-      m_spell.clear();
+  cout << m_name <<"'s spells have been cleared from memory!" << endl;
+}
 
-      cout << m_name <<"'s spells have been cleared from memory!" << endl;
-    }
+void Mage::learnSpell(Spell* newspell) {
+  if (newspell != nullptr) {
+    m_spell.push_back(newspell);
+  }
+}
 
-    void learnSpell(Spell* newspell) {
-      if (newspell != nullptr) {
-        m_spell.push_back(newspell);
-      }
-    }
+void Mage::castSpell(int spellIndex, Character* target) {
+  if (spellIndex >=0 && spellIndex < m_spell.size()) {
+    
+    m_spell[spellIndex]->cast(this, target);
 
-    void castSpell(int spellIndex, Character* target) {
-      if (spellIndex >=0 && spellIndex < m_spell.size()) {
-        
-        m_spell[spellIndex]->cast(this, target);
-
-      } else {
-        cout << m_name << "doesn't know a spell at that index!" << endl;
-      }
-    }
-
-
-};
+  } else {
+    cout << m_name << "doesn't know a spell at that index!" << endl;
+  }
+}
