@@ -9,6 +9,7 @@ class Character {
     int m_currentHP;
     int m_maxHP;
     int m_attackPower;
+    int m_weaponBonus = 0;
 
     static int TotalCharacterCreated;
   public:
@@ -51,10 +52,19 @@ class Character {
         return m_currentHP > 0;
     }
 
-    virtual void attack(Character& target) { //virtual
-        target.takeDamage(m_attackPower);
+    void equipWeapon(int bonusAmount) {
+      m_weaponBonus = bonusAmount;
+    }
 
-        cout << "Enemy smashes you for " << m_attackPower <<" damage!" << endl;
+    void unEquipWeapon() {
+      m_weaponBonus = 0;
+    }
+
+    virtual void attack(Character& target) { 
+      int totalDamage = m_attackPower + m_weaponBonus;
+      target.takeDamage(totalDamage);
+
+      cout << "Enemy smashes you for " << totalDamage <<" damage!" << endl;
     }
 
     string getName () const {

@@ -10,6 +10,7 @@ class Character {
         int m_currentHP;
         int m_maxHP;
         int m_attackPower;
+        int m_weaponBonus;
 
         static int TotalCharacterCreated;
     public:
@@ -27,6 +28,10 @@ class Character {
         void heal(int amount);
 
         bool isAlive() const;
+
+        void equipWeapon(int bonusAmount);
+        
+        void unEquipWeapon();
 
         virtual void attack(Character& target);
 
