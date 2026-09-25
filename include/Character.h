@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include "Inventory.h"
 
 using namespace std;
 
@@ -11,6 +12,7 @@ class Character {
         int m_maxHP;
         int m_attackPower;
         int m_weaponBonus = 0;
+        Inventory inventory;
 
         static int TotalCharacterCreated;
 
@@ -30,6 +32,8 @@ class Character {
         void equipWeapon(int bonusAmount);
         
         void unEquipWeapon();
+
+        Inventory& getInventory();
 
         virtual void attack(Character& target);
 

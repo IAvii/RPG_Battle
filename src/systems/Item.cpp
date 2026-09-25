@@ -1,29 +1,26 @@
-#include <iostream>
 #include "Character.h"
+#include <iostream>
 #include "Item.h"
 
-void HealthPotion::use(Character* user) {
-  if (m_quantity > 0) {
-    m_quantity--;
-    user->heal(m_healAmount);
-    std::cout << "Your HP increased to " << user->getHP() << endl;
-  } else {
-    std::cout << "You have no health Potion left!" << endl;
-  }
-}
 
-string HealthPotion::getName() const {
-  return m_name;
+HealthPotion::HealthPotion()
+            :Item("Health Potion", 2, true) {}
+
+void HealthPotion::use(Character* user) {
+  std::cout << user->getName() << " drinks a " << getName() << " and restores health!\n";
+  user->heal(20);
 }
 
 int HealthPotion::getAmount() const {
   return m_healAmount;
 }
 
+Sword::Sword(int boostAttack, bool isEquipped)
+      :Item("Sword", 1, false),m_boostAttack(boostAttack), m_isEquipped(isEquipped) {}
 
 void Sword::use(Character* user) {
-  if (m_isEquipped && m_quantity == 1) {
-    m_isEquipped = false;
+  if (m_isEquipped == false) {
+    m_isEquipped = true;
     user->equipWeapon(m_boostAttack);
     cout << "You equipped the Sword! Attack increased."<< endl;
   } else {
@@ -31,10 +28,6 @@ void Sword::use(Character* user) {
     user->unEquipWeapon();
     cout << "You unequipped the Sword! Attack returned to normal."<<endl;
   }
-}
-
-string Sword::getName() const {
-  return m_name;
 }
 
 int Sword::getAmount() const {

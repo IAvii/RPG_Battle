@@ -5,7 +5,7 @@
 
 
 void Fireball::cast(Character* caster, Character* target) {
-  int fireballDamageAmount = 25;
+  int fireballDamageAmount = 16;
   target->takeDamage(fireballDamageAmount);
 
   std::cout << caster->getName() <<" casts Fireball on "<< target->getName() <<" for 25 damage!"<< endl;

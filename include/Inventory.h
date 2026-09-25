@@ -4,6 +4,8 @@
 #include <vector>
 #include <memory>
 
+class Character;
+
 class Inventory {
   private:
     vector<unique_ptr<Item>> m_items;

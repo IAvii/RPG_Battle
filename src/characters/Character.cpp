@@ -1,5 +1,5 @@
+#include "Character.h"
 #include <iostream>
-#include "Inventory.h"
 using namespace std;
 
 
@@ -44,6 +44,10 @@ void Character::equipWeapon(int bonusAmount) {
 
 void Character::unEquipWeapon() {
     m_weaponBonus = 0;
+}
+
+Inventory& Character::getInventory() {
+    return inventory;
 }
 
 void Character::attack(Character& target) { 

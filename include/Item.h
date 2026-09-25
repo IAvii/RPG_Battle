@@ -1,42 +1,52 @@
 #pragma once
+#include <string>
 
-#include "Character.h"
+using namespace std;
+
+class Character;
 
 class Item {
-  protected:
+  private:
+    string m_name;
     int m_quantity;
+    bool m_isConsumable;
   public:
-    virtual void use(Character* user) = 0;
-    virtual string getName() const = 0;
-    virtual int getAmount() const = 0;
+    Item(string name, int quantity, bool isConsumable) 
+    : m_name(name), m_quantity(quantity), m_isConsumable(isConsumable) {}
 
     virtual ~Item() = default;
+
+    virtual void use(Character* user) = 0;
+    virtual int getAmount() const = 0;
+
+    string getName() const { return m_name; }
+    int getQuantity() const { return m_quantity; }
+    bool isConsumable() const { return m_isConsumable; }
+
+    void decreaseQuantity() { m_quantity--; }
+    void IncreaseQuantity(int amount) { m_quantity += amount; }
+
 };
 
 class HealthPotion: public Item {
   private:
-    string m_name = "HealthPotion";
-    int m_healAmount = 25;
-    int m_quantity = 5;
+    int m_healAmount;
   public:
+    HealthPotion();
+
     void use(Character* user) override;
 
-    string getName() const override;
-
-    virtual int getAmount() const;
+    virtual int getAmount() const override;
 };
 
 class Sword: public Item {
   private:
-    string m_name = "Sword";
-    int m_boostAttack = 10;
-    bool m_isEquipped = false;
-    int m_quantity = 1;
+    int m_boostAttack;
+    bool m_isEquipped;
   public:
+    Sword(int boostAttack, bool isEquipped);
 
     void use(Character* user) override;
-
-    string getName() const override;
 
     int getAmount() const override;
 };
